@@ -6,7 +6,7 @@
 /*   By: mwilsch <mwilsch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 17:24:42 by mwilsch           #+#    #+#             */
-/*   Updated: 2022/10/11 13:57:31 by mwilsch          ###   ########.fr       */
+/*   Updated: 2022/10/18 20:58:47 by mwilsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,3 @@ int	ft_isalpha(int c)
 	else
 		return (0);
 }
-
-// int main()	
-// {
-// int result;
-// result = ft_isalpha(']');
-// printf("%d", result);
-// }

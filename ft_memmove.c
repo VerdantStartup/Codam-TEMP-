@@ -6,7 +6,7 @@
 /*   By: mwilsch <mwilsch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:23:13 by mwilsch           #+#    #+#             */
-/*   Updated: 2022/10/11 14:09:49 by mwilsch          ###   ########.fr       */
+/*   Updated: 2022/10/15 17:04:21 by mwilsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,25 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		return (dest);
 	if (dest > src)
 	{
-		while (n--)
+		while (n)
+		{
+			n--;
 			((unsigned char *)dest)[n] = ((unsigned char *)src)[n];
+		}
 		return (dest);
 	}
-	while (i++ < n)
+	while (i < n)
+	{
 		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+		i++;
+	}
 	return (dest);
 }
 
 // int main()
 // {
 // 		// char d[] = "E"
-// 		char s[] = "Elon Musk";
+// 		char s[0xF0] = "Elon Musk";
 // 		size_t n = 6;
 // 		ft_memmove(s + 2, s, n );
 // 		// memmove(s + 2, s, n );

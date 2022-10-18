@@ -6,7 +6,7 @@
 /*   By: mwilsch <mwilsch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 19:37:12 by mwilsch           #+#    #+#             */
-/*   Updated: 2022/10/11 13:57:31 by mwilsch          ###   ########.fr       */
+/*   Updated: 2022/10/18 21:51:05 by mwilsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	else
 		return (0);
 }
-
-// int main ()
-// {
-// 	char s1[] = "ABCDEF";
-// 	char s2[] = "ABCDEF";
-// 	size_t n = 10;
-// 	printf("%d\n", ft_strncmp(s1, s2, n));
-// 	printf("%d", strncmp(s1, s2, n));
-// }

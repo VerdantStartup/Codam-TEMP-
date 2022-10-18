@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwilsch <mwilsch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 17:49:30 by mwilsch           #+#    #+#             */
-/*   Updated: 2022/10/18 21:07:19 by mwilsch          ###   ########.fr       */
+/*   Created: 2022/10/18 17:47:10 by mwilsch           #+#    #+#             */
+/*   Updated: 2022/10/18 21:13:27 by mwilsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+// Debug until I understand
+
+void	ft_putnbr_fd(int n, int fd)
 {
-	if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z')
-		|| (c >= 'a' && c <= 'z'))
-		return (1);
+	if (n < 10 && n >= 0)
+		ft_putchar_fd(n + '0', fd);
+	else if (n > 0)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
+	else if (n == -2147483648)
+		write(fd, "-2147483648", 11);
 	else
-		return (0);
+	{
+		write(fd, "-", 1);
+		ft_putnbr_fd(n * -1, fd);
+	}
 }

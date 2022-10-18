@@ -6,7 +6,7 @@
 /*   By: mwilsch <mwilsch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:35:10 by mwilsch           #+#    #+#             */
-/*   Updated: 2022/10/12 22:32:34 by mwilsch          ###   ########.fr       */
+/*   Updated: 2022/10/18 21:45:49 by mwilsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,19 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
+	size_t	dst_len;
 	size_t	i;
-	size_t	i2;
-	size_t	temp;
 
+	dst_len = ft_strlen(dst);
 	i = 0;
-	i2 = 0;
-	if (dst[i] == '\0')
+	if (dst_len >= dstsize)
+		return (dstsize + ft_strlen(src));
+	while (dst_len < dstsize - 1 && src[i])
 	{
-		while (src[i2])
-			i2++;
-		return (i2);
-	}
-	while (dst[i])
+		dst[dst_len] = src[i];
+		dst_len++;
 		i++;
-	temp = i;
-	while (src[i2] && i < dstsize - 1)
-	{
-		dst[i] = src[i2];
-		i++;
-		i2++;
 	}
-	while (src[i2])
-		i2++;
-	dst[i] = '\0';
-	return (temp + i2);
-}
-
-int main()
-{
-	char *str = "n\0AA";
-	char buff1[0xF00] = "\0AAAAAAAAAAAAAAAA";
-	char buff2[0xF00] = "\0AAAAAAAAAAAAAAAA";
-	size_t max = 10;
-	printf("%lu ", strlcat(buff1, str, max));
-	printf("%s ", buff1);
-	printf("%lu ", ft_strlcat(buff2, str, max));
-	printf("%s", buff2);
+	dst[dst_len] = '\0';
+	return (dst_len - i + ft_strlen(src));
 }

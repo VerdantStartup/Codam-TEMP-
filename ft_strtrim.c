@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwilsch <mwilsch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 17:49:30 by mwilsch           #+#    #+#             */
-/*   Updated: 2022/10/18 21:07:19 by mwilsch          ###   ########.fr       */
+/*   Created: 2022/10/13 16:00:16 by mwilsch           #+#    #+#             */
+/*   Updated: 2022/10/18 21:49:17 by mwilsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z')
-		|| (c >= 'a' && c <= 'z'))
-		return (1);
-	else
-		return (0);
+	char	*search_s1;
+	char	*set_string;
+	int		i;
+
+	search_s1 = (char *)s1;
+	set_string = (char *)set;
+	i = 0;
+	while (ft_strchr(set_string, *search_s1) && search_s1[i])
+		search_s1++;
+	i = ft_strlen(search_s1);
+	while (ft_strchr(set_string, search_s1[i]) && i != 0)
+		i--;
+	return (ft_substr(search_s1, 0, i + 1));
 }

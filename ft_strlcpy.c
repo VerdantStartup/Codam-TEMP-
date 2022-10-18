@@ -6,7 +6,7 @@
 /*   By: mwilsch <mwilsch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 16:28:54 by mwilsch           #+#    #+#             */
-/*   Updated: 2022/10/12 21:26:15 by mwilsch          ###   ########.fr       */
+/*   Updated: 2022/10/18 21:25:23 by mwilsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
 	size_t	i;
 
 	i = 0;
-	// if (!src)
-	// 	return (0);
 	if (dstsize == 0)
 		return (ft_strlen(src));
 	while (i < dstsize - 1 && src[i])

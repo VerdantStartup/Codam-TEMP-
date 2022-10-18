@@ -6,7 +6,7 @@
 /*   By: mwilsch <mwilsch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:58:47 by mwilsch           #+#    #+#             */
-/*   Updated: 2022/10/12 21:50:09 by mwilsch          ###   ########.fr       */
+/*   Updated: 2022/10/18 20:56:10 by mwilsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,3 @@ int	ft_atoi(const char *str)
 		return (0);
 	return (res * sign);
 }
-
-

@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwilsch <mwilsch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 17:49:30 by mwilsch           #+#    #+#             */
-/*   Updated: 2022/10/18 21:07:19 by mwilsch          ###   ########.fr       */
+/*   Created: 2022/10/18 17:35:50 by mwilsch           #+#    #+#             */
+/*   Updated: 2022/10/18 21:22:25 by mwilsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+void	ft_putendl_fd(char *s, int fd)
 {
-	if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z')
-		|| (c >= 'a' && c <= 'z'))
-		return (1);
-	else
-		return (0);
+	int		i;
+	char	c;
+
+	i = 0;
+	c = '\n';
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	write(fd, &c, 1);
 }

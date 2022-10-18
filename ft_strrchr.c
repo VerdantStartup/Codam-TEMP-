@@ -6,37 +6,49 @@
 /*   By: mwilsch <mwilsch@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 19:16:15 by mwilsch           #+#    #+#             */
-/*   Updated: 2022/10/12 22:26:11 by mwilsch          ###   ########.fr       */
+/*   Updated: 2022/10/18 21:25:54 by mwilsch          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
+
+// char	*ft_strrchr(const char *s, int c)
+// {
+// 	int	i;
+// 	int	temp;
+
+// 	i = 0;
+// 	temp = -1;
+// 	if (c == '\0')
+// 		return ((char *)s + ft_strlen(s));
+// 	while (s[i])
+// 	{
+// 		if (s[i] == c)
+// 			temp = i;
+// 		i++;
+// 	}
+// 	if (temp != -1)
+// 		return ((char *)s + temp);
+// 	return (NULL);
+// }
 
 char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
-	int	temp;
+	int	t;
 
 	i = 0;
-	temp = -1;
-	if (c == '\0')
-		return ((char *)s + ft_strlen(s));
+	t = -1;
 	while (s[i])
 	{
-		if (s[i] == c)
-			temp = i;
+		if (s[i] == (char)c)
+			t = i;
 		i++;
 	}
-	if (temp != -1)
-		return ((char *)s + temp);
-	return (NULL);
+	if (c == 0)
+		return ((char *)s + i);
+	if (t < 0)
+		return (0);
+	return ((char *)s + t);
 }
-
-// int main()
-// {
-// 	char *src = "abbbbbbbb";
-// 	char *d1 = strrchr(src, 'a');
-// 	char *d2 = ft_strrchr(src, 'a');
-// 	printf("%s", d1);
-// 	printf("%s", d2);
-// }
